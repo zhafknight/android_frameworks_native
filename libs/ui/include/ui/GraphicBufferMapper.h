@@ -61,8 +61,6 @@ public:
 
     status_t unlock(buffer_handle_t handle);
 
-    status_t getphys(buffer_handle_t handle, void** paddr);
-
     status_t lockAsync(buffer_handle_t handle,
             uint32_t usage, const Rect& bounds, void** vaddr, int fenceFd);
 
@@ -74,8 +72,9 @@ public:
             uint32_t usage, const Rect& bounds, android_ycbcr *ycbcr,
             int fenceFd);
 
-
     status_t unlockAsync(buffer_handle_t handle, int *fenceFd);
+
+    status_t getphys(buffer_handle_t handle, void** paddr);
 
     const Gralloc2::Mapper& getGrallocMapper() const
     {

@@ -199,6 +199,13 @@ int Mapper::unlock(buffer_handle_t bufferHandle) const
     return releaseFence;
 }
 
+Error Mapper::getphys(buffer_handle_t bufferHandle, void ** paddr) const
+{
+    ALOGE("getphys(%p) %p TODO", bufferHandle, paddr);
+
+    return Error::NONE;
+}
+
 Allocator::Allocator(const Mapper& mapper)
     : mMapper(mapper)
 {

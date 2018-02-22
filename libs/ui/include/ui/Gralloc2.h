@@ -71,6 +71,9 @@ public:
     // owned by the caller
     int unlock(buffer_handle_t bufferHandle) const;
 
+    // Exynos 4 specific method
+    Error getphys(buffer_handle_t handle, void** paddr) const;
+
 private:
     sp<IMapper> mMapper;
 };

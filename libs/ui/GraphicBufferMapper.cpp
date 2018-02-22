@@ -129,6 +129,16 @@ status_t GraphicBufferMapper::lockAsync(buffer_handle_t handle,
     return static_cast<status_t>(error);
 }
 
+status_t GraphicBufferMapper::getphys(buffer_handle_t handle, void** paddr) {
+    ATRACE_CALL();
+
+    Gralloc2::Error error = mMapper->getphys(handle, paddr);
+    ALOGW_IF(error != Gralloc2::Error::NONE, "getphys(%p, ...) failed: %d",
+            handle, error);
+
+    return static_cast<status_t>(error);
+}
+
 static inline bool isValidYCbCrPlane(const android_flex_plane_t& plane) {
     if (plane.bits_per_component != 8) {
         ALOGV("Invalid number of bits per component: %d",
